@@ -8,7 +8,7 @@ This application is an open-source iOS concept, designed to showcase Midjourney 
 
 **Step 1:** First, run the `pod install` command, as the [CocoaPods](https://cocoapods.org) Frameworks and Libraries are not bundled with the repository.
 
-**Step 2:** Afterward, open the `app.xcworkspace` file in Xcode, and from the menu, choose Product/Run or press (⌘ R).
+**Step 2:** Open the `app.xcworkspace` file in Xcode, and from the menu, choose Product/Run or press (⌘ R).
 
 <img src="https://related.chat/midjourney/02.png" width="880">
 
