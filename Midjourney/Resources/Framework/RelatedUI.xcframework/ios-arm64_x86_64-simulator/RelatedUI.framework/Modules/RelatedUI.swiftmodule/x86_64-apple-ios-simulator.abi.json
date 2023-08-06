@@ -1,0 +1,2950 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GridViewProtocol",
+        "printedName": "GridViewProtocol",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "view",
+            "printedName": "view",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "UIKit.UIView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIView",
+                    "printedName": "UIKit.UIView",
+                    "usr": "c:objc(cs)UIView"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RelatedUI@objc(pl)GridViewProtocol(py)view",
+            "mangledName": "$s9RelatedUI16GridViewProtocolP4viewSo6UIViewCSgvp",
+            "moduleName": "RelatedUI",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "UIKit.UIView?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UIView",
+                        "printedName": "UIKit.UIView",
+                        "usr": "c:objc(cs)UIView"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RelatedUI@objc(pl)GridViewProtocol(im)view",
+                "mangledName": "$s9RelatedUI16GridViewProtocolP4viewSo6UIViewCSgvg",
+                "moduleName": "RelatedUI",
+                "genericSig": "<τ_0_0 where τ_0_0 : RelatedUI.GridViewProtocol>",
+                "sugared_genericSig": "<Self where Self : RelatedUI.GridViewProtocol>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "imageSize",
+            "printedName": "imageSize()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGSize",
+                "printedName": "CoreFoundation.CGSize",
+                "usr": "c:@S@CGSize"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RelatedUI@objc(pl)GridViewProtocol(im)imageSize",
+            "mangledName": "$s9RelatedUI16GridViewProtocolP9imageSizeSo6CGSizeVyF",
+            "moduleName": "RelatedUI",
+            "genericSig": "<τ_0_0 where τ_0_0 : RelatedUI.GridViewProtocol>",
+            "sugared_genericSig": "<Self where Self : RelatedUI.GridViewProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "imageView",
+            "printedName": "imageView()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIImageView",
+                "printedName": "UIKit.UIImageView",
+                "usr": "c:objc(cs)UIImageView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RelatedUI@objc(pl)GridViewProtocol(im)imageView",
+            "mangledName": "$s9RelatedUI16GridViewProtocolP05imageD0So07UIImageD0CyF",
+            "moduleName": "RelatedUI",
+            "genericSig": "<τ_0_0 where τ_0_0 : RelatedUI.GridViewProtocol>",
+            "sugared_genericSig": "<Self where Self : RelatedUI.GridViewProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "imagePosition",
+            "printedName": "imagePosition()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGPoint",
+                "printedName": "CoreFoundation.CGPoint",
+                "usr": "c:@S@CGPoint"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RelatedUI@objc(pl)GridViewProtocol(im)imagePosition",
+            "mangledName": "$s9RelatedUI16GridViewProtocolP13imagePositionSo7CGPointVyF",
+            "moduleName": "RelatedUI",
+            "genericSig": "<τ_0_0 where τ_0_0 : RelatedUI.GridViewProtocol>",
+            "sugared_genericSig": "<Self where Self : RelatedUI.GridViewProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@RelatedUI@objc(pl)GridViewProtocol",
+        "mangledName": "$s9RelatedUI16GridViewProtocolP",
+        "moduleName": "RelatedUI",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PageViewProtocol",
+        "printedName": "PageViewProtocol",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "view",
+            "printedName": "view",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "UIKit.UIView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIView",
+                    "printedName": "UIKit.UIView",
+                    "usr": "c:objc(cs)UIView"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RelatedUI@objc(pl)PageViewProtocol(py)view",
+            "mangledName": "$s9RelatedUI16PageViewProtocolP4viewSo6UIViewCSgvp",
+            "moduleName": "RelatedUI",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "UIKit.UIView?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UIView",
+                        "printedName": "UIKit.UIView",
+                        "usr": "c:objc(cs)UIView"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RelatedUI@objc(pl)PageViewProtocol(im)view",
+                "mangledName": "$s9RelatedUI16PageViewProtocolP4viewSo6UIViewCSgvg",
+                "moduleName": "RelatedUI",
+                "genericSig": "<τ_0_0 where τ_0_0 : RelatedUI.PageViewProtocol>",
+                "sugared_genericSig": "<Self where Self : RelatedUI.PageViewProtocol>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "imageSize",
+            "printedName": "imageSize()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGSize",
+                "printedName": "CoreFoundation.CGSize",
+                "usr": "c:@S@CGSize"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RelatedUI@objc(pl)PageViewProtocol(im)imageSize",
+            "mangledName": "$s9RelatedUI16PageViewProtocolP9imageSizeSo6CGSizeVyF",
+            "moduleName": "RelatedUI",
+            "genericSig": "<τ_0_0 where τ_0_0 : RelatedUI.PageViewProtocol>",
+            "sugared_genericSig": "<Self where Self : RelatedUI.PageViewProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "imageView",
+            "printedName": "imageView()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIImageView",
+                "printedName": "UIKit.UIImageView",
+                "usr": "c:objc(cs)UIImageView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RelatedUI@objc(pl)PageViewProtocol(im)imageView",
+            "mangledName": "$s9RelatedUI16PageViewProtocolP05imageD0So07UIImageD0CyF",
+            "moduleName": "RelatedUI",
+            "genericSig": "<τ_0_0 where τ_0_0 : RelatedUI.PageViewProtocol>",
+            "sugared_genericSig": "<Self where Self : RelatedUI.PageViewProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "imagePosition",
+            "printedName": "imagePosition()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGPoint",
+                "printedName": "CoreFoundation.CGPoint",
+                "usr": "c:@S@CGPoint"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RelatedUI@objc(pl)PageViewProtocol(im)imagePosition",
+            "mangledName": "$s9RelatedUI16PageViewProtocolP13imagePositionSo7CGPointVyF",
+            "moduleName": "RelatedUI",
+            "genericSig": "<τ_0_0 where τ_0_0 : RelatedUI.PageViewProtocol>",
+            "sugared_genericSig": "<Self where Self : RelatedUI.PageViewProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@RelatedUI@objc(pl)PageViewProtocol",
+        "mangledName": "$s9RelatedUI16PageViewProtocolP",
+        "moduleName": "RelatedUI",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Size",
+        "printedName": "Size",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Size",
+                "printedName": "RelatedUI.Size",
+                "usr": "s:9RelatedUI4SizeV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:9RelatedUI4SizeVyAC14CoreFoundation7CGFloatV_AFtcfc",
+            "mangledName": "$s9RelatedUI4SizeVyAC12CoreGraphics7CGFloatV_AFtcfc",
+            "moduleName": "RelatedUI",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Size",
+                "printedName": "RelatedUI.Size",
+                "usr": "s:9RelatedUI4SizeV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:9RelatedUI4SizeVyAC14CoreFoundation7CGFloatVcfc",
+            "mangledName": "$s9RelatedUI4SizeVyAC12CoreGraphics7CGFloatVcfc",
+            "moduleName": "RelatedUI",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Size",
+                "printedName": "RelatedUI.Size",
+                "usr": "s:9RelatedUI4SizeV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGRect",
+                "printedName": "CoreFoundation.CGRect",
+                "usr": "c:@S@CGRect"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:9RelatedUI4SizeVyACSo6CGRectVcfc",
+            "mangledName": "$s9RelatedUI4SizeVyACSo6CGRectVcfc",
+            "moduleName": "RelatedUI",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:9RelatedUI4SizeV",
+        "mangledName": "$s9RelatedUI4SizeV",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Image",
+        "printedName": "Image",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "cleanupCache",
+            "printedName": "cleanupCache()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RelatedUI@objc(cs)Image(im)cleanupCache",
+            "mangledName": "$s9RelatedUI5ImageC12cleanupCacheyyF",
+            "moduleName": "RelatedUI",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "load",
+            "printedName": "load(_:_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Size",
+                "printedName": "RelatedUI.Size",
+                "usr": "s:9RelatedUI4SizeV"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(UIKit.UIImage?, Swift.Error?, Swift.Bool) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(UIKit.UIImage?, Swift.Error?, Swift.Bool)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "UIKit.UIImage?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "UIImage",
+                            "printedName": "UIKit.UIImage",
+                            "usr": "c:objc(cs)UIImage"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.Error?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Error",
+                            "printedName": "Swift.Error",
+                            "usr": "s:s5ErrorP"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9RelatedUI5ImageC4loadyySS_AA4SizeVySo7UIImageCSg_s5Error_pSgSbtctFZ",
+            "mangledName": "$s9RelatedUI5ImageC4loadyySS_AA4SizeVySo7UIImageCSg_s5Error_pSgSbtctFZ",
+            "moduleName": "RelatedUI",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "path",
+            "printedName": "path(link:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RelatedUI.Size?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Size",
+                    "printedName": "RelatedUI.Size",
+                    "usr": "s:9RelatedUI4SizeV"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9RelatedUI5ImageC4path4link_SSSgSS_AA4SizeVSgtFZ",
+            "mangledName": "$s9RelatedUI5ImageC4path4link_SSSgSS_AA4SizeVSgtFZ",
+            "moduleName": "RelatedUI",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "delete",
+            "printedName": "delete(link:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RelatedUI.Size?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Size",
+                    "printedName": "RelatedUI.Size",
+                    "usr": "s:9RelatedUI4SizeV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9RelatedUI5ImageC6delete4link_ySS_AA4SizeVSgtFZ",
+            "mangledName": "$s9RelatedUI5ImageC6delete4link_ySS_AA4SizeVSgtFZ",
+            "moduleName": "RelatedUI",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "cleanupCache",
+            "printedName": "cleanupCache()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9RelatedUI5ImageC12cleanupCacheyyFZ",
+            "mangledName": "$s9RelatedUI5ImageC12cleanupCacheyyFZ",
+            "moduleName": "RelatedUI",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "cleanupFiles",
+            "printedName": "cleanupFiles(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9RelatedUI5ImageC12cleanupFilesyySaySSGFZ",
+            "mangledName": "$s9RelatedUI5ImageC12cleanupFilesyySaySSGFZ",
+            "moduleName": "RelatedUI",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@RelatedUI@objc(cs)Image",
+        "mangledName": "$s9RelatedUI5ImageC",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NavigationControllerDelegate",
+        "printedName": "NavigationControllerDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "navigationController",
+            "printedName": "navigationController(_:animationControllerFor:from:to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIViewControllerAnimatedTransitioning?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIViewControllerAnimatedTransitioning",
+                    "printedName": "UIKit.UIViewControllerAnimatedTransitioning",
+                    "usr": "c:objc(pl)UIViewControllerAnimatedTransitioning"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UINavigationController",
+                "printedName": "UIKit.UINavigationController",
+                "usr": "c:objc(cs)UINavigationController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Operation",
+                "printedName": "UIKit.UINavigationController.Operation",
+                "usr": "c:@E@UINavigationControllerOperation"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RelatedUI@objc(cs)NavigationControllerDelegate(im)navigationController:animationControllerForOperation:fromViewController:toViewController:",
+            "mangledName": "$s9RelatedUI28NavigationControllerDelegateC010navigationD0_09animationD3For4from2toSo06UIViewD21AnimatedTransitioning_pSgSo012UINavigationD0C_So0nD9OperationVSo0kD0CAOtF",
+            "moduleName": "RelatedUI",
+            "objc_name": "navigationController:animationControllerForOperation:fromViewController:toViewController:",
+            "declAttributes": [
+              "ObjC",
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NavigationControllerDelegate",
+                "printedName": "RelatedUI.NavigationControllerDelegate",
+                "usr": "c:@M@RelatedUI@objc(cs)NavigationControllerDelegate"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RelatedUI@objc(cs)NavigationControllerDelegate(im)init",
+            "mangledName": "$s9RelatedUI28NavigationControllerDelegateCACycfc",
+            "moduleName": "RelatedUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@RelatedUI@objc(cs)NavigationControllerDelegate",
+        "mangledName": "$s9RelatedUI28NavigationControllerDelegateC",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "Custom",
+          "AccessControl",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Transition",
+        "printedName": "Transition",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "transitionDuration",
+            "printedName": "transitionDuration(using:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIViewControllerContextTransitioning?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIViewControllerContextTransitioning",
+                    "printedName": "UIKit.UIViewControllerContextTransitioning",
+                    "usr": "c:objc(pl)UIViewControllerContextTransitioning"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RelatedUI@objc(cs)Transition(im)transitionDuration:",
+            "mangledName": "$s9RelatedUI10TransitionC18transitionDuration5usingSdSo36UIViewControllerContextTransitioning_pSg_tF",
+            "moduleName": "RelatedUI",
+            "objc_name": "transitionDuration:",
+            "declAttributes": [
+              "ObjC",
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "animateTransition",
+            "printedName": "animateTransition(using:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewControllerContextTransitioning",
+                "printedName": "UIKit.UIViewControllerContextTransitioning",
+                "usr": "c:objc(pl)UIViewControllerContextTransitioning"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RelatedUI@objc(cs)Transition(im)animateTransition:",
+            "mangledName": "$s9RelatedUI10TransitionC07animateC05usingySo36UIViewControllerContextTransitioning_p_tF",
+            "moduleName": "RelatedUI",
+            "objc_name": "animateTransition:",
+            "declAttributes": [
+              "ObjC",
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "animateTransitionPush",
+            "printedName": "animateTransitionPush(using:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewControllerContextTransitioning",
+                "printedName": "UIKit.UIViewControllerContextTransitioning",
+                "usr": "c:objc(pl)UIViewControllerContextTransitioning"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9RelatedUI10TransitionC07animateC4Push5usingySo36UIViewControllerContextTransitioning_p_tF",
+            "mangledName": "$s9RelatedUI10TransitionC07animateC4Push5usingySo36UIViewControllerContextTransitioning_p_tF",
+            "moduleName": "RelatedUI",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "animateTransitionPop",
+            "printedName": "animateTransitionPop(using:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewControllerContextTransitioning",
+                "printedName": "UIKit.UIViewControllerContextTransitioning",
+                "usr": "c:objc(pl)UIViewControllerContextTransitioning"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9RelatedUI10TransitionC07animateC3Pop5usingySo36UIViewControllerContextTransitioning_p_tF",
+            "mangledName": "$s9RelatedUI10TransitionC07animateC3Pop5usingySo36UIViewControllerContextTransitioning_p_tF",
+            "moduleName": "RelatedUI",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Transition",
+                "printedName": "RelatedUI.Transition",
+                "usr": "c:@M@RelatedUI@objc(cs)Transition"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RelatedUI@objc(cs)Transition(im)init",
+            "mangledName": "$s9RelatedUI10TransitionCACycfc",
+            "moduleName": "RelatedUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@RelatedUI@objc(cs)Transition",
+        "mangledName": "$s9RelatedUI10TransitionC",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "Custom",
+          "AccessControl",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GridLayoutDelegate",
+        "printedName": "GridLayoutDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "collectionView",
+            "printedName": "collectionView(_:heightForCellAtIndexPath:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UICollectionView",
+                "printedName": "UIKit.UICollectionView",
+                "usr": "c:objc(cs)UICollectionView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "IndexPath",
+                "printedName": "Foundation.IndexPath",
+                "usr": "s:10Foundation9IndexPathV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9RelatedUI18GridLayoutDelegateP14collectionView_24heightForCellAtIndexPath14CoreFoundation7CGFloatVSo012UICollectionG0C_0O00lM0VtF",
+            "mangledName": "$s9RelatedUI18GridLayoutDelegateP14collectionView_24heightForCellAtIndexPath12CoreGraphics7CGFloatVSo012UICollectionG0C_10Foundation0lM0VtF",
+            "moduleName": "RelatedUI",
+            "genericSig": "<τ_0_0 where τ_0_0 : RelatedUI.GridLayoutDelegate>",
+            "sugared_genericSig": "<Self where Self : RelatedUI.GridLayoutDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:9RelatedUI18GridLayoutDelegateP",
+        "mangledName": "$s9RelatedUI18GridLayoutDelegateP",
+        "moduleName": "RelatedUI",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GridLayout",
+        "printedName": "GridLayout",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "delegate",
+            "printedName": "delegate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "RelatedUI.GridLayoutDelegate?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9RelatedUI10GridLayoutC8delegateAA0cD8Delegate_pSgvp",
+            "mangledName": "$s9RelatedUI10GridLayoutC8delegateAA0cD8Delegate_pSgvp",
+            "moduleName": "RelatedUI",
+            "declAttributes": [
+              "Custom",
+              "HasInitialValue",
+              "HasStorage",
+              "ReferenceOwnership",
+              "AccessControl"
+            ],
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "RelatedUI.GridLayoutDelegate?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GridLayoutDelegate",
+                        "printedName": "RelatedUI.GridLayoutDelegate",
+                        "usr": "s:9RelatedUI18GridLayoutDelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI10GridLayoutC8delegateAA0cD8Delegate_pSgvg",
+                "mangledName": "$s9RelatedUI10GridLayoutC8delegateAA0cD8Delegate_pSgvg",
+                "moduleName": "RelatedUI",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "RelatedUI.GridLayoutDelegate?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GridLayoutDelegate",
+                        "printedName": "RelatedUI.GridLayoutDelegate",
+                        "usr": "s:9RelatedUI18GridLayoutDelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI10GridLayoutC8delegateAA0cD8Delegate_pSgvs",
+                "mangledName": "$s9RelatedUI10GridLayoutC8delegateAA0cD8Delegate_pSgvs",
+                "moduleName": "RelatedUI",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI10GridLayoutC8delegateAA0cD8Delegate_pSgvM",
+                "mangledName": "$s9RelatedUI10GridLayoutC8delegateAA0cD8Delegate_pSgvM",
+                "moduleName": "RelatedUI",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "collectionViewContentSize",
+            "printedName": "collectionViewContentSize",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGSize",
+                "printedName": "CoreFoundation.CGSize",
+                "usr": "c:@S@CGSize"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RelatedUI@objc(cs)GridLayout(py)collectionViewContentSize",
+            "mangledName": "$s9RelatedUI10GridLayoutC25collectionViewContentSizeSo6CGSizeVvp",
+            "moduleName": "RelatedUI",
+            "overriding": true,
+            "objc_name": "collectionViewContentSize",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "AccessControl",
+              "Override",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGSize",
+                    "printedName": "CoreFoundation.CGSize",
+                    "usr": "c:@S@CGSize"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RelatedUI@objc(cs)GridLayout(im)collectionViewContentSize",
+                "mangledName": "$s9RelatedUI10GridLayoutC25collectionViewContentSizeSo6CGSizeVvg",
+                "moduleName": "RelatedUI",
+                "overriding": true,
+                "objc_name": "collectionViewContentSize",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "prepare",
+            "printedName": "prepare()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RelatedUI@objc(cs)GridLayout(im)prepareLayout",
+            "mangledName": "$s9RelatedUI10GridLayoutC7prepareyyF",
+            "moduleName": "RelatedUI",
+            "overriding": true,
+            "objc_name": "prepareLayout",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "AccessControl",
+              "Override",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "layoutAttributesForElements",
+            "printedName": "layoutAttributesForElements(in:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[UIKit.UICollectionViewLayoutAttributes]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[UIKit.UICollectionViewLayoutAttributes]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UICollectionViewLayoutAttributes",
+                        "printedName": "UIKit.UICollectionViewLayoutAttributes",
+                        "usr": "c:objc(cs)UICollectionViewLayoutAttributes"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGRect",
+                "printedName": "CoreFoundation.CGRect",
+                "usr": "c:@S@CGRect"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RelatedUI@objc(cs)GridLayout(im)layoutAttributesForElementsInRect:",
+            "mangledName": "$s9RelatedUI10GridLayoutC27layoutAttributesForElements2inSaySo016UICollectionViewdF0CGSgSo6CGRectV_tF",
+            "moduleName": "RelatedUI",
+            "overriding": true,
+            "objc_name": "layoutAttributesForElementsInRect:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "AccessControl",
+              "Override",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "layoutAttributesForItem",
+            "printedName": "layoutAttributesForItem(at:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UICollectionViewLayoutAttributes?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UICollectionViewLayoutAttributes",
+                    "printedName": "UIKit.UICollectionViewLayoutAttributes",
+                    "usr": "c:objc(cs)UICollectionViewLayoutAttributes"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "IndexPath",
+                "printedName": "Foundation.IndexPath",
+                "usr": "s:10Foundation9IndexPathV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RelatedUI@objc(cs)GridLayout(im)layoutAttributesForItemAtIndexPath:",
+            "mangledName": "$s9RelatedUI10GridLayoutC23layoutAttributesForItem2atSo016UICollectionViewdF0CSg10Foundation9IndexPathV_tF",
+            "moduleName": "RelatedUI",
+            "overriding": true,
+            "objc_name": "layoutAttributesForItemAtIndexPath:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "AccessControl",
+              "Override",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GridLayout",
+                "printedName": "RelatedUI.GridLayout",
+                "usr": "c:@M@RelatedUI@objc(cs)GridLayout"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RelatedUI@objc(cs)GridLayout(im)init",
+            "mangledName": "$s9RelatedUI10GridLayoutCACycfc",
+            "moduleName": "RelatedUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(coder:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RelatedUI.GridLayout?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GridLayout",
+                    "printedName": "RelatedUI.GridLayout",
+                    "usr": "c:@M@RelatedUI@objc(cs)GridLayout"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSCoder",
+                "printedName": "Foundation.NSCoder",
+                "usr": "c:objc(cs)NSCoder"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RelatedUI@objc(cs)GridLayout(im)initWithCoder:",
+            "mangledName": "$s9RelatedUI10GridLayoutC5coderACSgSo7NSCoderC_tcfc",
+            "moduleName": "RelatedUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithCoder:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "Required"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@RelatedUI@objc(cs)GridLayout",
+        "mangledName": "$s9RelatedUI10GridLayoutC",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "Custom",
+          "AccessControl",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)UICollectionViewLayout",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "UIKit.UICollectionViewLayout",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CryptoKit",
+        "printedName": "CryptoKit",
+        "declKind": "Import",
+        "moduleName": "RelatedUI"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Grid",
+        "printedName": "Grid",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "gridColumns",
+            "printedName": "gridColumns",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9RelatedUI4GridC11gridColumnsSivpZ",
+            "mangledName": "$s9RelatedUI4GridC11gridColumnsSivpZ",
+            "moduleName": "RelatedUI",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC11gridColumnsSivgZ",
+                "mangledName": "$s9RelatedUI4GridC11gridColumnsSivgZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC11gridColumnsSivsZ",
+                "mangledName": "$s9RelatedUI4GridC11gridColumnsSivsZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC11gridColumnsSivMZ",
+                "mangledName": "$s9RelatedUI4GridC11gridColumnsSivMZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "gridMargin",
+            "printedName": "gridMargin",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9RelatedUI4GridC10gridMargin14CoreFoundation7CGFloatVvpZ",
+            "mangledName": "$s9RelatedUI4GridC10gridMargin12CoreGraphics7CGFloatVvpZ",
+            "moduleName": "RelatedUI",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC10gridMargin14CoreFoundation7CGFloatVvgZ",
+                "mangledName": "$s9RelatedUI4GridC10gridMargin12CoreGraphics7CGFloatVvgZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC10gridMargin14CoreFoundation7CGFloatVvsZ",
+                "mangledName": "$s9RelatedUI4GridC10gridMargin12CoreGraphics7CGFloatVvsZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC10gridMargin14CoreFoundation7CGFloatVvMZ",
+                "mangledName": "$s9RelatedUI4GridC10gridMargin12CoreGraphics7CGFloatVvMZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "pageMargin",
+            "printedName": "pageMargin",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9RelatedUI4GridC10pageMargin14CoreFoundation7CGFloatVvpZ",
+            "mangledName": "$s9RelatedUI4GridC10pageMargin12CoreGraphics7CGFloatVvpZ",
+            "moduleName": "RelatedUI",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC10pageMargin14CoreFoundation7CGFloatVvgZ",
+                "mangledName": "$s9RelatedUI4GridC10pageMargin12CoreGraphics7CGFloatVvgZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC10pageMargin14CoreFoundation7CGFloatVvsZ",
+                "mangledName": "$s9RelatedUI4GridC10pageMargin12CoreGraphics7CGFloatVvsZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC10pageMargin14CoreFoundation7CGFloatVvMZ",
+                "mangledName": "$s9RelatedUI4GridC10pageMargin12CoreGraphics7CGFloatVvMZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "gridCorner",
+            "printedName": "gridCorner",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9RelatedUI4GridC10gridCorner14CoreFoundation7CGFloatVvpZ",
+            "mangledName": "$s9RelatedUI4GridC10gridCorner12CoreGraphics7CGFloatVvpZ",
+            "moduleName": "RelatedUI",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC10gridCorner14CoreFoundation7CGFloatVvgZ",
+                "mangledName": "$s9RelatedUI4GridC10gridCorner12CoreGraphics7CGFloatVvgZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC10gridCorner14CoreFoundation7CGFloatVvsZ",
+                "mangledName": "$s9RelatedUI4GridC10gridCorner12CoreGraphics7CGFloatVvsZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC10gridCorner14CoreFoundation7CGFloatVvMZ",
+                "mangledName": "$s9RelatedUI4GridC10gridCorner12CoreGraphics7CGFloatVvMZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "widthGridImage",
+            "printedName": "widthGridImage",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9RelatedUI4GridC05widthC5Image14CoreFoundation7CGFloatVvpZ",
+            "mangledName": "$s9RelatedUI4GridC05widthC5Image12CoreGraphics7CGFloatVvpZ",
+            "moduleName": "RelatedUI",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC05widthC5Image14CoreFoundation7CGFloatVvgZ",
+                "mangledName": "$s9RelatedUI4GridC05widthC5Image12CoreGraphics7CGFloatVvgZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC05widthC5Image14CoreFoundation7CGFloatVvsZ",
+                "mangledName": "$s9RelatedUI4GridC05widthC5Image12CoreGraphics7CGFloatVvsZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC05widthC5Image14CoreFoundation7CGFloatVvMZ",
+                "mangledName": "$s9RelatedUI4GridC05widthC5Image12CoreGraphics7CGFloatVvMZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "heightGridLabel",
+            "printedName": "heightGridLabel",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9RelatedUI4GridC06heightC5Label14CoreFoundation7CGFloatVvpZ",
+            "mangledName": "$s9RelatedUI4GridC06heightC5Label12CoreGraphics7CGFloatVvpZ",
+            "moduleName": "RelatedUI",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC06heightC5Label14CoreFoundation7CGFloatVvgZ",
+                "mangledName": "$s9RelatedUI4GridC06heightC5Label12CoreGraphics7CGFloatVvgZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC06heightC5Label14CoreFoundation7CGFloatVvsZ",
+                "mangledName": "$s9RelatedUI4GridC06heightC5Label12CoreGraphics7CGFloatVvsZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC06heightC5Label14CoreFoundation7CGFloatVvMZ",
+                "mangledName": "$s9RelatedUI4GridC06heightC5Label12CoreGraphics7CGFloatVvMZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "pageTitleFont",
+            "printedName": "pageTitleFont",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIFont",
+                "printedName": "UIKit.UIFont",
+                "usr": "c:objc(cs)UIFont"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9RelatedUI4GridC13pageTitleFontSo6UIFontCvpZ",
+            "mangledName": "$s9RelatedUI4GridC13pageTitleFontSo6UIFontCvpZ",
+            "moduleName": "RelatedUI",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIFont",
+                    "printedName": "UIKit.UIFont",
+                    "usr": "c:objc(cs)UIFont"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC13pageTitleFontSo6UIFontCvgZ",
+                "mangledName": "$s9RelatedUI4GridC13pageTitleFontSo6UIFontCvgZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIFont",
+                    "printedName": "UIKit.UIFont",
+                    "usr": "c:objc(cs)UIFont"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC13pageTitleFontSo6UIFontCvsZ",
+                "mangledName": "$s9RelatedUI4GridC13pageTitleFontSo6UIFontCvsZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC13pageTitleFontSo6UIFontCvMZ",
+                "mangledName": "$s9RelatedUI4GridC13pageTitleFontSo6UIFontCvMZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "pageTextFont",
+            "printedName": "pageTextFont",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIFont",
+                "printedName": "UIKit.UIFont",
+                "usr": "c:objc(cs)UIFont"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9RelatedUI4GridC12pageTextFontSo6UIFontCvpZ",
+            "mangledName": "$s9RelatedUI4GridC12pageTextFontSo6UIFontCvpZ",
+            "moduleName": "RelatedUI",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIFont",
+                    "printedName": "UIKit.UIFont",
+                    "usr": "c:objc(cs)UIFont"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC12pageTextFontSo6UIFontCvgZ",
+                "mangledName": "$s9RelatedUI4GridC12pageTextFontSo6UIFontCvgZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIFont",
+                    "printedName": "UIKit.UIFont",
+                    "usr": "c:objc(cs)UIFont"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC12pageTextFontSo6UIFontCvsZ",
+                "mangledName": "$s9RelatedUI4GridC12pageTextFontSo6UIFontCvsZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI4GridC12pageTextFontSo6UIFontCvMZ",
+                "mangledName": "$s9RelatedUI4GridC12pageTextFontSo6UIFontCvMZ",
+                "moduleName": "RelatedUI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "columns",
+            "printedName": "columns()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9RelatedUI4GridC7columnsSiyFZ",
+            "mangledName": "$s9RelatedUI4GridC7columnsSiyFZ",
+            "moduleName": "RelatedUI",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "columns",
+            "printedName": "columns()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9RelatedUI4GridC7columns14CoreFoundation7CGFloatVyFZ",
+            "mangledName": "$s9RelatedUI4GridC7columns12CoreGraphics7CGFloatVyFZ",
+            "moduleName": "RelatedUI",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:9RelatedUI4GridC",
+        "mangledName": "$s9RelatedUI4GridC",
+        "moduleName": "RelatedUI",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "hasMissingDesignatedInitializers": true
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UIColor",
+        "printedName": "UIColor",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIColor?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIColor",
+                    "printedName": "UIKit.UIColor",
+                    "usr": "c:objc(cs)UIColor"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:So7UIColorC9RelatedUIEyABSgSScfc",
+            "mangledName": "$sSo7UIColorC9RelatedUIEyABSgSScfc",
+            "moduleName": "RelatedUI",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)UIColor",
+        "moduleName": "UIKit",
+        "isOpen": true,
+        "intro_iOS": "2.0",
+        "objc_name": "UIColor",
+        "declAttributes": [
+          "Available",
+          "ObjC",
+          "SynthesizedProtocol",
+          "NonSendable",
+          "Sendable",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_ExpressibleByColorLiteral",
+            "printedName": "_ExpressibleByColorLiteral",
+            "usr": "s:s26_ExpressibleByColorLiteralP",
+            "mangledName": "$ss26_ExpressibleByColorLiteralP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/extensions\/Data+Extension.swift",
+      "kind": "Array",
+      "offset": 1161,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Image.swift",
+      "kind": "Array",
+      "offset": 1720,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Image.swift",
+      "kind": "Dictionary",
+      "offset": 1765,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Image.swift",
+      "kind": "Array",
+      "offset": 11577,
+      "length": 21,
+      "value": "[\"jpg\", \"mp4\", \"m4a\"]"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Transition\/Transition.swift",
+      "kind": "FloatLiteral",
+      "offset": 1533,
+      "length": 3,
+      "value": "0.4"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Layout\/GridLayout.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1162,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Layout\/GridLayout.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1205,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Layout\/GridLayout.swift",
+      "kind": "Array",
+      "offset": 1275,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/extensions\/NSError+Extension.swift",
+      "kind": "IntegerLiteral",
+      "offset": 932,
+      "length": 3,
+      "value": "100"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
+      "kind": "IntegerLiteral",
+      "offset": 769,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
+      "kind": "FloatLiteral",
+      "offset": 813,
+      "length": 3,
+      "value": "2.5"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
+      "kind": "FloatLiteral",
+      "offset": 858,
+      "length": 3,
+      "value": "5.0"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
+      "kind": "FloatLiteral",
+      "offset": 903,
+      "length": 3,
+      "value": "2.5"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
+      "kind": "FloatLiteral",
+      "offset": 953,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
+      "kind": "FloatLiteral",
+      "offset": 1003,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
+      "kind": "FloatLiteral",
+      "offset": 1069,
+      "length": 4,
+      "value": "17.0"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
+      "kind": "FloatLiteral",
+      "offset": 1150,
+      "length": 4,
+      "value": "15.0"
+    }
+  ]
+}

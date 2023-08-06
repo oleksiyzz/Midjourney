@@ -1,0 +1,89 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios14.2 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RelatedUI
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CryptoKit
+import Foundation
+@_exported import RelatedUI
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+@objc public protocol GridViewProtocol {
+  @objc var view: UIKit.UIView! { get }
+  @objc func imageSize() -> CoreFoundation.CGSize
+  @objc func imageView() -> UIKit.UIImageView
+  @objc func imagePosition() -> CoreFoundation.CGPoint
+}
+@objc public protocol PageViewProtocol {
+  @objc var view: UIKit.UIView! { get }
+  @objc func imageSize() -> CoreFoundation.CGSize
+  @objc func imageView() -> UIKit.UIImageView
+  @objc func imagePosition() -> CoreFoundation.CGPoint
+}
+extension UIKit.UIColor {
+  convenience public init?(_ hex: Swift.String)
+}
+public struct Size {
+  public init(_ width: CoreFoundation.CGFloat, _ height: CoreFoundation.CGFloat)
+  public init(_ size: CoreFoundation.CGFloat)
+  public init(_ frame: CoreFoundation.CGRect)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Image : ObjectiveC.NSObject {
+  @objc public func cleanupCache()
+  @objc deinit
+}
+extension RelatedUI.Image {
+  public class func load(_ link: Swift.String, _ size: RelatedUI.Size, _ completion: @escaping (UIKit.UIImage?, Swift.Error?, Swift.Bool) -> Swift.Void)
+}
+extension RelatedUI.Image {
+  public class func path(link: Swift.String, _ size: RelatedUI.Size? = nil) -> Swift.String?
+}
+extension RelatedUI.Image {
+  public class func delete(link: Swift.String, _ size: RelatedUI.Size?)
+}
+extension RelatedUI.Image {
+  public class func cleanupCache()
+  public class func cleanupFiles(_ extensions: [Swift.String] = ["jpg", "mp4", "m4a"])
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class NavigationControllerDelegate : ObjectiveC.NSObject, UIKit.UINavigationControllerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc public func navigationController(_ navigationController: UIKit.UINavigationController, animationControllerFor operation: UIKit.UINavigationController.Operation, from fromVC: UIKit.UIViewController, to toVC: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class Transition : ObjectiveC.NSObject, UIKit.UIViewControllerAnimatedTransitioning {
+  @_Concurrency.MainActor(unsafe) @objc public func transitionDuration(using transitionContext: UIKit.UIViewControllerContextTransitioning?) -> Foundation.TimeInterval
+  @_Concurrency.MainActor(unsafe) @objc public func animateTransition(using transitionContext: UIKit.UIViewControllerContextTransitioning)
+  @_Concurrency.MainActor(unsafe) public func animateTransitionPush(using transitionContext: UIKit.UIViewControllerContextTransitioning)
+  @_Concurrency.MainActor(unsafe) public func animateTransitionPop(using transitionContext: UIKit.UIViewControllerContextTransitioning)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc deinit
+}
+public protocol GridLayoutDelegate : AnyObject {
+  func collectionView(_ collectionView: UIKit.UICollectionView, heightForCellAtIndexPath indexPath: Foundation.IndexPath) -> CoreFoundation.CGFloat
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class GridLayout : UIKit.UICollectionViewLayout {
+  @_Concurrency.MainActor(unsafe) weak public var delegate: RelatedUI.GridLayoutDelegate!
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var collectionViewContentSize: CoreFoundation.CGSize {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func prepare()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutAttributesForElements(in rect: CoreFoundation.CGRect) -> [UIKit.UICollectionViewLayoutAttributes]?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutAttributesForItem(at indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewLayoutAttributes?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class Grid {
+  public static var gridColumns: Swift.Int
+  public static var gridMargin: CoreFoundation.CGFloat
+  public static var pageMargin: CoreFoundation.CGFloat
+  public static var gridCorner: CoreFoundation.CGFloat
+  public static var widthGridImage: CoreFoundation.CGFloat
+  public static var heightGridLabel: CoreFoundation.CGFloat
+  public static var pageTitleFont: UIKit.UIFont
+  public static var pageTextFont: UIKit.UIFont
+  public class func columns() -> Swift.Int
+  public class func columns() -> CoreFoundation.CGFloat
+  @objc deinit
+}

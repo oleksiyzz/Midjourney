@@ -1,0 +1,11 @@
+framework module RelatedUI {
+  umbrella header "RelatedUI.h"
+
+  export *
+  module * { export * }
+}
+
+module RelatedUI.Swift {
+  header "RelatedUI-Swift.h"
+  requires objc
+}
