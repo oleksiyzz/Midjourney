@@ -520,7 +520,7 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@RelatedUI@objc(cs)Image(im)cleanupCache",
+            "usr": "s:9RelatedUI5ImageC12cleanupCacheyyF",
             "mangledName": "$s9RelatedUI5ImageC12cleanupCacheyyF",
             "moduleName": "RelatedUI",
             "declAttributes": [
@@ -777,71 +777,14 @@
           }
         ],
         "declKind": "Class",
-        "usr": "c:@M@RelatedUI@objc(cs)Image",
+        "usr": "s:9RelatedUI5ImageC",
         "mangledName": "$s9RelatedUI5ImageC",
         "moduleName": "RelatedUI",
         "declAttributes": [
           "AccessControl",
-          "RawDocComment",
-          "ObjC"
+          "RawDocComment"
         ],
-        "superclassUsr": "c:objc(cs)NSObject",
-        "hasMissingDesignatedInitializers": true,
-        "inheritsConvenienceInitializers": true,
-        "superclassNames": [
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          }
-        ]
+        "hasMissingDesignatedInitializers": true
       },
       {
         "kind": "Import",
@@ -1439,6 +1382,93 @@
                 "declKind": "Accessor",
                 "usr": "s:9RelatedUI10GridLayoutC8delegateAA0cD8Delegate_pSgvM",
                 "mangledName": "$s9RelatedUI10GridLayoutC8delegateAA0cD8Delegate_pSgvM",
+                "moduleName": "RelatedUI",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "widthCollection",
+            "printedName": "widthCollection",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9RelatedUI10GridLayoutC15widthCollection14CoreFoundation7CGFloatVvp",
+            "mangledName": "$s9RelatedUI10GridLayoutC15widthCollection12CoreGraphics7CGFloatVvp",
+            "moduleName": "RelatedUI",
+            "declAttributes": [
+              "Custom",
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI10GridLayoutC15widthCollection14CoreFoundation7CGFloatVvg",
+                "mangledName": "$s9RelatedUI10GridLayoutC15widthCollection12CoreGraphics7CGFloatVvg",
+                "moduleName": "RelatedUI",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI10GridLayoutC15widthCollection14CoreFoundation7CGFloatVvs",
+                "mangledName": "$s9RelatedUI10GridLayoutC15widthCollection12CoreGraphics7CGFloatVvs",
+                "moduleName": "RelatedUI",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9RelatedUI10GridLayoutC15widthCollection14CoreFoundation7CGFloatVvM",
+                "mangledName": "$s9RelatedUI10GridLayoutC15widthCollection12CoreGraphics7CGFloatVvM",
                 "moduleName": "RelatedUI",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -2338,106 +2368,6 @@
           },
           {
             "kind": "Var",
-            "name": "heightGridLabel",
-            "printedName": "heightGridLabel",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "CGFloat",
-                "printedName": "CoreGraphics.CGFloat",
-                "usr": "s:14CoreFoundation7CGFloatV"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:9RelatedUI4GridC06heightC5Label14CoreFoundation7CGFloatVvpZ",
-            "mangledName": "$s9RelatedUI4GridC06heightC5Label12CoreGraphics7CGFloatVvpZ",
-            "moduleName": "RelatedUI",
-            "static": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "AccessControl"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CGFloat",
-                    "printedName": "CoreGraphics.CGFloat",
-                    "usr": "s:14CoreFoundation7CGFloatV"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9RelatedUI4GridC06heightC5Label14CoreFoundation7CGFloatVvgZ",
-                "mangledName": "$s9RelatedUI4GridC06heightC5Label12CoreGraphics7CGFloatVvgZ",
-                "moduleName": "RelatedUI",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CGFloat",
-                    "printedName": "CoreGraphics.CGFloat",
-                    "usr": "s:14CoreFoundation7CGFloatV"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9RelatedUI4GridC06heightC5Label14CoreFoundation7CGFloatVvsZ",
-                "mangledName": "$s9RelatedUI4GridC06heightC5Label12CoreGraphics7CGFloatVvsZ",
-                "moduleName": "RelatedUI",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9RelatedUI4GridC06heightC5Label14CoreFoundation7CGFloatVvMZ",
-                "mangledName": "$s9RelatedUI4GridC06heightC5Label12CoreGraphics7CGFloatVvMZ",
-                "moduleName": "RelatedUI",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "pageTitleFont",
             "printedName": "pageTitleFont",
             "children": [
@@ -2837,21 +2767,21 @@
     {
       "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Image.swift",
       "kind": "Array",
-      "offset": 1720,
+      "offset": 1710,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Image.swift",
       "kind": "Dictionary",
-      "offset": 1765,
+      "offset": 1755,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Image.swift",
       "kind": "Array",
-      "offset": 11577,
+      "offset": 11542,
       "length": 21,
       "value": "[\"jpg\", \"mp4\", \"m4a\"]"
     },
@@ -2865,21 +2795,21 @@
     {
       "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Layout\/GridLayout.swift",
       "kind": "IntegerLiteral",
-      "offset": 1162,
+      "offset": 1161,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Layout\/GridLayout.swift",
       "kind": "IntegerLiteral",
-      "offset": 1205,
+      "offset": 1204,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Layout\/GridLayout.swift",
       "kind": "Array",
-      "offset": 1275,
+      "offset": 1274,
       "length": 2,
       "value": "[]"
     },
@@ -2895,54 +2825,47 @@
       "kind": "IntegerLiteral",
       "offset": 769,
       "length": 1,
-      "value": "3"
+      "value": "2"
     },
     {
       "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
       "kind": "FloatLiteral",
       "offset": 813,
-      "length": 3,
-      "value": "2.5"
+      "length": 4,
+      "value": "10.0"
     },
     {
       "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
       "kind": "FloatLiteral",
-      "offset": 858,
+      "offset": 859,
+      "length": 4,
+      "value": "10.0"
+    },
+    {
+      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
+      "kind": "FloatLiteral",
+      "offset": 905,
       "length": 3,
       "value": "5.0"
     },
     {
       "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
       "kind": "FloatLiteral",
-      "offset": 903,
-      "length": 3,
-      "value": "2.5"
-    },
-    {
-      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
-      "kind": "FloatLiteral",
-      "offset": 953,
+      "offset": 955,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
       "kind": "FloatLiteral",
-      "offset": 1003,
-      "length": 3,
-      "value": "0.0"
-    },
-    {
-      "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
-      "kind": "FloatLiteral",
-      "offset": 1069,
+      "offset": 1021,
       "length": 4,
       "value": "17.0"
     },
     {
       "filePath": "\/Users\/kz\/Documents\/RelatedUI\/RelatedUI\/Classes\/Utilities\/general\/Grid.swift",
       "kind": "FloatLiteral",
-      "offset": 1150,
+      "offset": 1102,
       "length": 4,
       "value": "15.0"
     }

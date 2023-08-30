@@ -9,82 +9,83 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import UIKit
-import RelatedUI
+import Foundation
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
-class PageCell2: UITableViewCell {
+class Keywords {
 
-	@IBOutlet var imagePage: UIImageView!
+	private let link = "https://related.chat/midjourney/words.json"
 
-	private var objectId = ""
+	private let path = Dir.document("words.json")
+
+	private var words: [String: Int] = [:]
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	override func prepareForReuse() {
+	static let shared: Keywords = {
+		let instance = Keywords()
+		return instance
+	} ()
 
-		objectId = ""
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	class func setup() {
 
-		imagePage.image = nil
+		shared.setup()
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	override func layoutSubviews() {
+	private func setup() {
 
-		super.layoutSubviews()
-
-		let widthImage = bounds.width - 2 * Grid.pageMargin
-		let heightImage = bounds.height - 2 * Grid.pageMargin
-
-		let scale = widthImage / Grid.widthGridImage
-
-		imagePage.frame = CGRect(x: Grid.pageMargin, y: Grid.pageMargin, width: widthImage, height: heightImage)
-
-		imagePage.layer.masksToBounds = true
-		imagePage.layer.cornerRadius = Grid.gridCorner * scale
+		load()
+		if (words.isEmpty) {
+			download()
+		}
 	}
 }
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
-extension PageCell2 {
+extension Keywords {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func bindData(_ dbitem: DBItem) {
+	private func load() {
 
-		objectId = dbitem.objectId
-
-		loadImage(dbitem)
-	}
-
-	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func loadImage(_ dbitem: DBItem) {
-
-		let width = bounds.width - 2 * Grid.pageMargin
-		let height = bounds.height - 2 * Grid.pageMargin
-
-		let size = Size(width, height)
-
-		Image.load(dbitem.link, size) { [weak self] image, error, later in
-			guard let self = self else { return }
-			if (self.objectId == dbitem.objectId) {
-				if let image = image {
-					self.imagePage.image = image
-				} else if later {
-					self.loadLater(dbitem)
-				}
-			}
+		if let data = Data(path: path) {
+			decode(data)
 		}
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func loadLater(_ dbitem: DBItem) {
+	private func decode(_ data: Data) {
 
-		DispatchQueue.main.async(after: 0.75) { [weak self] in
-			guard let self = self else { return }
-			if (self.objectId == dbitem.objectId) {
-				if (self.imagePage.image == nil) {
-					self.loadImage(dbitem)
-				}
+		if let dict = try? JSONDecoder().decode([String: Int].self, from: data) {
+			words = dict
+		}
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	private func download() {
+
+		guard let url = URL(string: link) else { fatalError() }
+
+		let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+			if let data = data {
+				self.decode(data)
+				data.write(path: self.path)
 			}
 		}
+
+		task.resume()
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------
+extension Keywords {
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	class func random() -> String {
+
+		if let element = shared.words.randomElement() {
+			return element.key
+		}
+		return ""
 	}
 }

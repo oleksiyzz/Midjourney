@@ -21,30 +21,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-		Database.setup()
+		applicationFolder()
 
-		//---------------------------------------------------------------------------------------------------------------------------------------
 		window = UIWindow(frame: UIScreen.main.bounds)
 
-		let gridView = GridView(nibName: "GridView", bundle: nil)
-		let navController = NavigationController(rootViewController: gridView)
+		let mainView = MainView(nibName: "MainView", bundle: nil)
+		let navController = NavigationController(rootViewController: mainView)
 
 		window?.rootViewController = navController
 		window?.makeKeyAndVisible()
 
-		//---------------------------------------------------------------------------------------------------------------------------------------
 		if #available(iOS 15.0, *) {
 			UITableView.appearance().sectionHeaderTopPadding = 0
 		}
 
-		//---------------------------------------------------------------------------------------------------------------------------------------
 		ProgressHUD.colorAnimation = Appx.mainColor
 		ProgressHUD.colorProgress = Appx.mainColor
 
 		return true
 	}
+}
 
-	// MARK: -
+//-----------------------------------------------------------------------------------------------------------------------------------------------
+extension AppDelegate {
+
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func applicationWillResignActive(_ application: UIApplication) {
 
@@ -68,5 +68,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func applicationWillTerminate(_ application: UIApplication) {
 
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------
+extension AppDelegate {
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	func applicationFolder() {
+
+		if let document = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
+			if let temp = document.components(separatedBy: "/Library/Developer/CoreSimulator/Devices/").last {
+				let array = temp.components(separatedBy: "/data/Containers/Data/Application/")
+				if let device = array.first, var app = array.last {
+					app = app.replacingOccurrences(of: "/Documents", with: "")
+					print("Device: \(device) - App: \(app)")
+				}
+			}
+		}
 	}
 }

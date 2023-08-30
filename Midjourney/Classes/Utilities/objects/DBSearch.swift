@@ -13,33 +13,15 @@ import Foundation
 import RelatedDB
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
-class DBItem: NSObject, RDObject {
+class DBSearch: NSObject, RDObject {
 
 	@objc var objectId: String = ""
 
-//	@objc var link: String = ""
-//	@objc var full: String = ""
-
-//	@objc var width: Int = 0
-//	@objc var height: Int = 0
-	@objc var ratio: Double = 0
-
-//	@objc var username: String = ""
 	@objc var prompt: String = ""
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	class func primaryKey() -> String {
 
 		return "objectId"
-	}
-}
-
-//-----------------------------------------------------------------------------------------------------------------------------------------------
-extension DBItem {
-
-	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func link() -> String {
-
-		return "https://cdn.midjourney.com/" + objectId + "_384_N.webp"
 	}
 }

@@ -20,34 +20,129 @@ class GridView: UIViewController {
 	private var selectedPath = IndexPath(item: 0, section: 0)
 	private let delegateHolder = NavigationControllerDelegate()
 
+	private var gridLayout: GridLayout!
+	private var buttonTitle: UIButton!
+
+	private var search: String = ""
 	private var dbitems: [DBItem] = []
+	private var isLoading: Bool = false
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	init(_ search: String) {
+
+		super.init(nibName: nil, bundle: nil)
+
+		self.search = search
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	required init?(coder: NSCoder) {
+
+		fatalError()
+	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	override func viewDidLoad() {
 
 		super.viewDidLoad()
-		title = "Midjourney"
+
+		buttonTitle = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+		buttonTitle.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+		buttonTitle.addTarget(self, action: #selector(actionRandom), for: .touchUpInside)
+		navigationItem.titleView = buttonTitle
 
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
-
-		let imageDetails = UIImage(systemName: "gearshape")
-		navigationItem.rightBarButtonItem = UIBarButtonItem(image: imageDetails, style: .plain, target: self, action: #selector(actionDetails))
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(actionSearch))
 
 		collectionView.register(UINib(nibName: "GridCell", bundle: nil), forCellWithReuseIdentifier: "GridCell")
-		collectionView.collectionViewLayout = GridLayout()
 
-		if let layout = collectionView.collectionViewLayout as? GridLayout {
-			layout.delegate = self
-		}
+		gridLayout = GridLayout()
+		gridLayout.delegate = self
+		collectionView.collectionViewLayout = gridLayout
 
-		dbitems = DBItem.fetchAll(qdb)
+		let margin = Grid.gridMargin / 2
+		collectionView.contentInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
+
+		loadItems()
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	override func viewDidLayoutSubviews() {
+	override func viewDidAppear(_ animated: Bool) {
 
-		super.viewDidLayoutSubviews()
+		super.viewDidAppear(animated)
+
+		navigationController?.delegate = nil
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	override func viewWillLayoutSubviews() {
+
+		super.viewWillLayoutSubviews()
+
 		collectionView.collectionViewLayout.invalidateLayout()
+	}
+}
+
+// MARK: - Database methods
+//-----------------------------------------------------------------------------------------------------------------------------------------------
+extension GridView {
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	func loadItems() {
+
+		if (isLoading) { return }
+
+		scrollToZero()
+		updateLoading(true)
+
+		dbitems.removeAll()
+		collectionView.reloadData()
+
+		DispatchQueue.global().async {
+			self.searchItems()
+		}
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	func searchItems() {
+
+		let dbsearches = DBSearch.fetchAll(qdb, "prompt MATCH ?", [search+"*"])
+
+		var objectIds: [String] = []
+		for dbsearch in dbsearches {
+			objectIds.append(dbsearch.objectId)
+		}
+
+		dbitems = DBItem.fetchAll(qdb, "objectId IN ?", [objectIds])
+		dbitems.shuffle()
+
+		DispatchQueue.main.async {
+			self.collectionView.reloadData()
+			self.updateLoading(false)
+		}
+	}
+}
+
+// MARK: - Helper methods
+//-----------------------------------------------------------------------------------------------------------------------------------------------
+extension GridView {
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	func scrollToZero() {
+
+		if (collectionView.numberOfItems(inSection: 0) != 0) {
+			collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
+		}
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	func updateLoading(_ value: Bool) {
+
+		isLoading = value
+
+		let text = isLoading ? "Loading..." : "\(search.capitalized) - \(dbitems.count)"
+
+		buttonTitle.setTitle(text, for: .normal)
 	}
 }
 
@@ -56,12 +151,33 @@ class GridView: UIViewController {
 extension GridView {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	@objc func actionDetails() {
+	@objc func actionRandom() {
 
-		let detailsView = DetailsView()
-		detailsView.delegate = self
-		let navController = NavigationController(rootViewController: detailsView)
-		navigationController?.present(navController, animated: true, completion: nil)
+		search = Keywords.random()
+
+		loadItems()
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	@objc func actionSearch() {
+
+		let searchView = SearchView()
+		searchView.delegate = self
+		let navController = NavigationController(rootViewController: searchView)
+		present(navController, animated: true)
+	}
+}
+
+// MARK: - SearchDelegate
+//-----------------------------------------------------------------------------------------------------------------------------------------------
+extension GridView: SearchDelegate {
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	func didSearchItem(_ search: String) {
+
+		self.search = search
+
+		loadItems()
 	}
 }
 
@@ -86,20 +202,6 @@ extension GridView {
 	}
 }
 
-// MARK: - DetailsDelegate
-//-----------------------------------------------------------------------------------------------------------------------------------------------
-extension GridView: DetailsDelegate {
-
-	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func didFinishSettings() {
-
-		collectionView.collectionViewLayout.invalidateLayout()
-		collectionView.setNeedsLayout()
-		collectionView.layoutIfNeeded()
-		collectionView.reloadData()
-	}
-}
-
 // MARK: - GridViewProtocol
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 extension GridView: GridViewProtocol {
@@ -109,8 +211,9 @@ extension GridView: GridViewProtocol {
 
 		let dbitem = dbitems[selectedPath.item]
 
-		let widthCell = collectionView.bounds.width / Grid.columns()
-		let widthImage = widthCell - 2 * Grid.gridMargin
+		let widthCollection = gridLayout.widthCollection
+		let widthCell = widthCollection / Grid.columns()
+		let widthImage = widthCell - Grid.gridMargin
 		let heightImage = widthImage * dbitem.ratio
 
 		return CGSize(width: widthImage, height: heightImage)
@@ -137,7 +240,7 @@ extension GridView: GridViewProtocol {
 	func imagePosition() -> CGPoint {
 
 		if let cell = collectionView.cellForItem(at: selectedPath) as? GridCell {
-			return cell.convert(cell.viewGrid.frame.origin, to: view)
+			return cell.convert(cell.imageGrid.frame.origin, to: view)
 		}
 
 		return CGPoint.zero
@@ -153,10 +256,11 @@ extension GridView: GridLayoutDelegate {
 
 		let dbitem = dbitems[indexPath.item]
 
-		let widthCell = collectionView.bounds.width / Grid.columns()
-		let widthImage = widthCell - 2 * Grid.gridMargin
+		let widthCollection = gridLayout.widthCollection
+		let widthCell = widthCollection / Grid.columns()
+		let widthImage = widthCell - Grid.gridMargin
 		let heightImage = widthImage * dbitem.ratio
-		let heightCell = heightImage + 2 * Grid.gridMargin + Grid.heightGridLabel
+		let heightCell = heightImage + Grid.gridMargin
 
 		Grid.widthGridImage = widthImage
 
@@ -186,7 +290,6 @@ extension GridView: UICollectionViewDataSource {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! GridCell
 
 		let dbitem = dbitems[indexPath.item]
-		cell.bindData(dbitem)
 		cell.loadImage(dbitem)
 
 		return cell

@@ -1,0 +1,24 @@
+PODS:
+  - Gifu (3.3.1)
+  - ProgressHUD (13.7.2)
+  - RelatedDB (1.0.8)
+
+DEPENDENCIES:
+  - Gifu
+  - ProgressHUD
+  - RelatedDB
+
+SPEC REPOS:
+  trunk:
+    - Gifu
+    - ProgressHUD
+    - RelatedDB
+
+SPEC CHECKSUMS:
+  Gifu: 416d4e38c4c2fed012f019e0a1d3ffcb58e5b842
+  ProgressHUD: 093d24ca970f191744017bee2649e37d0cd1c5b9
+  RelatedDB: 979ddce3d136b3459dccb9298e81213d4475af0f
+
+PODFILE CHECKSUM: 4c90011641741d70828677c810d1a4cb41697998
+
+COCOAPODS: 1.12.1

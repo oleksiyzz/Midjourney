@@ -15,12 +15,7 @@ import RelatedUI
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 class GridCell: UICollectionViewCell {
 
-	@IBOutlet var viewGrid: UIView!
 	@IBOutlet var imageGrid: UIImageView!
-
-	@IBOutlet private var viewLabel: UIView!
-	@IBOutlet private var labelTitle: UILabel!
-	@IBOutlet private var labelDetails: UILabel!
 
 	private var objectId = ""
 
@@ -37,31 +32,16 @@ class GridCell: UICollectionViewCell {
 
 		super.layoutSubviews()
 
-		let viewX = Grid.gridMargin
-		let viewY = Grid.gridMargin
+		let x = Grid.gridMargin / 2
+		let y = Grid.gridMargin / 2
 
-		let widthView = bounds.width - 2 * Grid.gridMargin
-		let heightView = bounds.height - 2 * Grid.gridMargin
+		let width = bounds.width - Grid.gridMargin
+		let height = bounds.height - Grid.gridMargin
 
-		viewGrid.frame = CGRect(x: viewX, y: viewY, width: widthView, height: heightView)
+		imageGrid.frame = CGRect(x: x, y: y, width: width, height: height)
 
-		viewGrid.layer.masksToBounds = true
-		viewGrid.layer.cornerRadius = Grid.gridCorner
-
-		let heightImage = heightView - Grid.heightGridLabel
-		let heightLabel = Grid.heightGridLabel
-
-		imageGrid.frame = CGRect(x: 0, y: 0, width: widthView, height: heightImage)
-		viewLabel.frame = CGRect(x: 0, y: heightImage, width: widthView, height: heightLabel)
-
-		var frameTitle = labelTitle.frame
-		var frameDetails = labelDetails.frame
-
-		frameTitle.size.width = widthView - 10
-		frameDetails.size.width = widthView - 10
-
-		labelTitle.frame = frameTitle
-		labelDetails.frame = frameDetails
+		imageGrid.layer.masksToBounds = true
+		imageGrid.layer.cornerRadius = Grid.gridCorner
 	}
 }
 
@@ -69,23 +49,16 @@ class GridCell: UICollectionViewCell {
 extension GridCell {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func bindData(_ dbitem: DBItem) {
-
-		labelTitle.text = dbitem.username
-		labelDetails.text = dbitem.prompt
-	}
-
-	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func loadImage(_ dbitem: DBItem) {
 
 		objectId = dbitem.objectId
 
-		let width = bounds.width - 2 * Grid.gridMargin
+		let width = bounds.width - Grid.gridMargin
 		let height = width * dbitem.ratio
 
 		let size = Size(width, height)
 
-		Image.load(dbitem.link, size) { [weak self] image, error, later in
+		Image.load(dbitem.link(), size) { [weak self] image, error, later in
 			guard let self = self else { return }
 			if (self.objectId == dbitem.objectId) {
 				if let image = image {

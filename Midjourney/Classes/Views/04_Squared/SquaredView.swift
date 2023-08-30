@@ -13,140 +13,160 @@ import UIKit
 import RelatedUI
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
-class PageView: UIViewController {
+class SquaredView: UIViewController {
 
 	@IBOutlet private var collectionView: UICollectionView!
 
-	private var dbitems: [DBItem] = []
-	private var selected: Int = 0
-	private var gridView: GridView!
+	private var buttonTitle: UIButton!
 
-	private var orientation = UIInterfaceOrientation.unknown
+	private var search: String = ""
+	private var dbitems: [DBItem] = []
+	private var isLoading: Bool = false
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	init(_ dbitems: [DBItem], _ selected: Int, _ gridView: GridView) {
+	init(_ search: String) {
 
 		super.init(nibName: nil, bundle: nil)
 
-		self.dbitems = dbitems
-		self.selected = selected
-		self.gridView = gridView
+		self.search = search
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	required init?(coder: NSCoder) {
 
-		super.init(coder: coder)
+		fatalError()
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-    override func viewDidLoad() {
+	override func viewDidLoad() {
 
 		super.viewDidLoad()
-		title = "Midjourney"
 
-		collectionView.register(UINib(nibName: "PageCell1", bundle: nil), forCellWithReuseIdentifier: "PageCell1")
+		buttonTitle = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+		buttonTitle.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+		buttonTitle.addTarget(self, action: #selector(actionRandom), for: .touchUpInside)
+		navigationItem.titleView = buttonTitle
 
-		orientation = interfaceOrientation()
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(actionSearch))
 
-		DispatchQueue.main.async {
-			self.scrollToItem()
+		collectionView.register(UINib(nibName: "SquaredCell", bundle: nil), forCellWithReuseIdentifier: "SquaredCell")
+
+		let margin = Grid.gridMargin / 2
+		collectionView.contentInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
+
+		loadItems()
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	override func viewWillLayoutSubviews() {
+
+		super.viewWillLayoutSubviews()
+
+		collectionView.collectionViewLayout.invalidateLayout()
+	}
+}
+
+// MARK: - Database methods
+//-----------------------------------------------------------------------------------------------------------------------------------------------
+extension SquaredView {
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	func loadItems() {
+
+		if (isLoading) { return }
+
+		scrollToZero()
+		updateLoading(true)
+
+		dbitems.removeAll()
+		collectionView.reloadData()
+
+		DispatchQueue.global().async {
+			self.searchItems()
 		}
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+	func searchItems() {
 
-		super.viewWillTransition(to: size, with: coordinator)
+		let dbsearches = DBSearch.fetchAll(qdb, "prompt MATCH ?", [search+"*"])
 
-		let custom = (interfaceOrientation() == orientation)
-		gridView.updateTransition(custom: custom)
+		var objectIds: [String] = []
+		for dbsearch in dbsearches {
+			objectIds.append(dbsearch.objectId)
+		}
 
-		scrollToItem()
+		dbitems = DBItem.fetchAll(qdb, "objectId IN ?", [objectIds])
+		dbitems.shuffle()
+
+		DispatchQueue.main.async {
+			self.collectionView.reloadData()
+			self.updateLoading(false)
+		}
 	}
 }
 
 // MARK: - Helper methods
 //-----------------------------------------------------------------------------------------------------------------------------------------------
-extension PageView {
+extension SquaredView {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func scrollToItem() {
+	func scrollToZero() {
 
-		collectionView.performBatchUpdates({
-			collectionView.reloadData()
-		}, completion: { [self] _ in
-			let indexPath = IndexPath(item: selected, section: 0)
-			collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-		})
+		if (collectionView.numberOfItems(inSection: 0) != 0) {
+			collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
+		}
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func interfaceOrientation() -> UIInterfaceOrientation {
+	func updateLoading(_ value: Bool) {
 
-		return UIApplication.shared.windows.first?.windowScene?.interfaceOrientation ?? UIInterfaceOrientation.unknown
+		isLoading = value
+
+		let text = isLoading ? "Loading..." : "\(search.capitalized) - \(dbitems.count)"
+
+		buttonTitle.setTitle(text, for: .normal)
 	}
 }
 
-// MARK: - PageViewProtocol
+// MARK: - User actions
 //-----------------------------------------------------------------------------------------------------------------------------------------------
-extension PageView: PageViewProtocol {
+extension SquaredView {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func imageSize() -> CGSize {
+	@objc func actionRandom() {
 
-		let dbitem = dbitems[selected]
+		search = Keywords.random()
 
-		let widthImage = view.bounds.width - 2 * Grid.pageMargin
-		let heightImage = widthImage * dbitem.ratio
-
-		return CGSize(width: widthImage, height: heightImage)
+		loadItems()
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func imageView() -> UIImageView {
+	@objc func actionSearch() {
 
-		let selectedPath = IndexPath(item: selected, section: 0)
-		if let pageCell1 = collectionView.cellForItem(at: selectedPath) as? PageCell1 {
-			let indexPath = IndexPath(row: 0, section: 0)
-			if let pageCell2 = pageCell1.tableView.cellForRow(at: indexPath) as? PageCell2 {
-				return pageCell2.imagePage
-			}
-		}
-
-		return UIImageView()
-	}
-
-	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func imagePosition() -> CGPoint {
-
-		let selectedPath = IndexPath(item: selected, section: 0)
-		if let cell = collectionView.cellForItem(at: selectedPath) as? PageCell1 {
-			return cell.convert(CGPoint(x: Grid.pageMargin, y: Grid.pageMargin + cell.contentOffsetY), to: view)
-		}
-
-		return collectionView.convert(CGPoint(x: Grid.pageMargin, y: Grid.pageMargin), to: view)
+		let searchView = SearchView()
+		searchView.delegate = self
+		let navController = NavigationController(rootViewController: searchView)
+		present(navController, animated: true)
 	}
 }
 
-// MARK: - UIScrollViewDelegate
+// MARK: - SearchDelegate
 //-----------------------------------------------------------------------------------------------------------------------------------------------
-extension PageView: UIScrollViewDelegate {
+extension SquaredView: SearchDelegate {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+	func didSearchItem(_ search: String) {
 
-		let width = collectionView.bounds.width
-		let offsetX = collectionView.contentOffset.x
-		selected = Int(round(offsetX / width))
+		self.search = search
 
-		gridView.updateSelected(selected)
+		loadItems()
 	}
 }
 
 // MARK: - UICollectionViewDataSource
 //-----------------------------------------------------------------------------------------------------------------------------------------------
-extension PageView: UICollectionViewDataSource {
+extension SquaredView: UICollectionViewDataSource {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -163,10 +183,10 @@ extension PageView: UICollectionViewDataSource {
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PageCell1", for: indexPath) as! PageCell1
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SquaredCell", for: indexPath) as! SquaredCell
 
 		let dbitem = dbitems[indexPath.item]
-		cell.bindData(dbitem, self)
+		cell.loadImage(dbitem)
 
 		return cell
 	}
@@ -174,11 +194,30 @@ extension PageView: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 //-----------------------------------------------------------------------------------------------------------------------------------------------
-extension PageView: UICollectionViewDelegateFlowLayout {
+extension SquaredView: UICollectionViewDelegateFlowLayout {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-		return collectionView.bounds.size
+		let widthCollection = collectionView.bounds.width - Grid.gridMargin
+		let widthCell = widthCollection / Grid.columns()
+
+		Grid.widthGridImage = widthCell - Grid.gridMargin
+
+		return CGSize(width: widthCell, height: widthCell)
+	}
+}
+
+// MARK: - UICollectionViewDelegate
+//-----------------------------------------------------------------------------------------------------------------------------------------------
+extension SquaredView: UICollectionViewDelegate {
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+		collectionView.deselectItem(at: indexPath, animated: true)
+
+		let pageView = PageView(dbitems, indexPath.item)
+		navigationController?.pushViewController(pageView, animated: true)
 	}
 }

@@ -31,7 +31,7 @@ class PageCell1: UICollectionViewCell {
 		tableView.dataSource = self
 		tableView.delegate = self
 
-		tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 30))
+		tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 20))
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
@@ -78,7 +78,7 @@ extension PageCell1: UITableViewDataSource {
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-		return 3
+		return 2
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
@@ -92,16 +92,12 @@ extension PageCell1: UITableViewDataSource {
 		}
 
 		if (indexPath.row == 1) {
-			return 40
-		}
-
-		if (indexPath.row == 2) {
 			let label = UILabel(frame: CGRect(x: 0, y: 0, width: bounds.width-30, height: 0))
 			label.text = dbitem.prompt
 			label.font = Grid.pageTextFont
 			label.numberOfLines = 0
 			label.sizeToFit()
-			return label.frame.height + 2 * Grid.pageMargin
+			return label.frame.height + 15
 		}
 
 		return 0
@@ -113,20 +109,11 @@ extension PageCell1: UITableViewDataSource {
 		if (indexPath.row == 0) {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "PageCell2", for: indexPath) as! PageCell2
 			cell.selectionStyle = .none
-			cell.bindData(dbitem)
+			cell.loadImage(dbitem)
 			return cell
 		}
 
 		if (indexPath.row == 1) {
-			var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cellTitle")
-			if (cell == nil) { cell = UITableViewCell(style: .default, reuseIdentifier: "cellTitle") }
-			cell.textLabel?.text = dbitem.username
-			cell.textLabel?.font = Grid.pageTitleFont
-			cell.selectionStyle = .none
-			return cell
-		}
-
-		if (indexPath.row == 2) {
 			var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cellText")
 			if (cell == nil) { cell = UITableViewCell(style: .default, reuseIdentifier: "cellText") }
 			cell.textLabel?.text = dbitem.prompt
@@ -149,15 +136,15 @@ extension PageCell1: UITableViewDelegate {
 		tableView.deselectRow(at: indexPath, animated: true)
 
 		if (indexPath.row == 0) {
-			if let path = Image.path(link: dbitem.link) {
+			if let path = Image.path(link: dbitem.link()) {
 				if let image = UIImage(path: path) {
-					let object = PhotoObject(dbitem.objectId, image, dbitem.username, dbitem.prompt)
+					let object = PhotoObject(dbitem.objectId, image)
 					let photoController = PhotoController([object], 0)
 					pageView.present(photoController, animated: true)
 				}
 			}
 		}
-		if (indexPath.row == 2) {
+		if (indexPath.row == 1) {
 			UIPasteboard.general.string = dbitem.prompt
 			ProgressHUD.showSucceed("Copied.")
 		}

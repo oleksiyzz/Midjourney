@@ -29,7 +29,7 @@ public struct Size {
   public init(_ size: CoreFoundation.CGFloat)
   public init(_ frame: CoreFoundation.CGRect)
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Image : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers public class Image {
   @objc public func cleanupCache()
   @objc deinit
 }
@@ -64,6 +64,7 @@ public protocol GridLayoutDelegate : AnyObject {
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class GridLayout : UIKit.UICollectionViewLayout {
   @_Concurrency.MainActor(unsafe) weak public var delegate: RelatedUI.GridLayoutDelegate!
+  @_Concurrency.MainActor(unsafe) public var widthCollection: CoreFoundation.CGFloat
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var collectionViewContentSize: CoreFoundation.CGSize {
     @objc get
   }
@@ -80,7 +81,6 @@ public protocol GridLayoutDelegate : AnyObject {
   public static var pageMargin: CoreFoundation.CGFloat
   public static var gridCorner: CoreFoundation.CGFloat
   public static var widthGridImage: CoreFoundation.CGFloat
-  public static var heightGridLabel: CoreFoundation.CGFloat
   public static var pageTitleFont: UIKit.UIFont
   public static var pageTextFont: UIKit.UIFont
   public class func columns() -> Swift.Int

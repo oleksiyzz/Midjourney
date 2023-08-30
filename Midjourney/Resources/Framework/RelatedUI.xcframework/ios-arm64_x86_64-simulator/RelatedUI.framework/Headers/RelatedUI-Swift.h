@@ -281,23 +281,6 @@ SWIFT_PROTOCOL("_TtP9RelatedUI16GridViewProtocol_")
 @end
 
 
-SWIFT_CLASS("_TtC9RelatedUI5Image")
-@interface Image : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (void)cleanupCache;
-@end
-
-
-
-
-
-
-
-
-
-
-
 
 @class UINavigationController;
 @class UIViewController;
@@ -623,23 +606,6 @@ SWIFT_PROTOCOL("_TtP9RelatedUI16GridViewProtocol_")
 - (UIImageView * _Nonnull)imageView SWIFT_WARN_UNUSED_RESULT;
 - (CGPoint)imagePosition SWIFT_WARN_UNUSED_RESULT;
 @end
-
-
-SWIFT_CLASS("_TtC9RelatedUI5Image")
-@interface Image : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (void)cleanupCache;
-@end
-
-
-
-
-
-
-
-
-
 
 
 
