@@ -17,18 +17,18 @@ class PageView: UIViewController {
 
 	@IBOutlet private var collectionView: UICollectionView!
 
-	private var dbitems: [DBItem] = []
+	private var items: [Item] = []
 	private var selected: Int = 0
 	private var gridView: GridView?
 
 	private var orientation = UIInterfaceOrientation.unknown
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	init(_ dbitems: [DBItem], _ selected: Int, _ gridView: GridView? = nil) {
+	init(_ items: [Item], _ selected: Int, _ gridView: GridView? = nil) {
 
 		super.init(nibName: nil, bundle: nil)
 
-		self.dbitems = dbitems
+		self.items = items
 		self.selected = selected
 		self.gridView = gridView
 	}
@@ -44,6 +44,9 @@ class PageView: UIViewController {
 
 		super.viewDidLoad()
 		title = "Page"
+
+		let image = UIImage(systemName: "icloud.and.arrow.down")
+		navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(actionSave))
 
 		collectionView.register(UINib(nibName: "PageCell1", bundle: nil), forCellWithReuseIdentifier: "PageCell1")
 
@@ -88,6 +91,19 @@ extension PageView {
 	}
 }
 
+// MARK: - User actions
+//-----------------------------------------------------------------------------------------------------------------------------------------------
+extension PageView {
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	@objc func actionSave() {
+
+		let item = items[selected]
+		let full = item.full()
+		Pictures().download(full)
+	}
+}
+
 // MARK: - PageViewProtocol
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 extension PageView: PageViewProtocol {
@@ -95,10 +111,10 @@ extension PageView: PageViewProtocol {
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func imageSize() -> CGSize {
 
-		let dbitem = dbitems[selected]
+		let item = items[selected]
 
 		let widthImage = view.bounds.width - 2 * Grid.pageMargin
-		let heightImage = widthImage * dbitem.ratio
+		let heightImage = widthImage * item.ratio
 
 		return CGSize(width: widthImage, height: heightImage)
 	}
@@ -157,7 +173,7 @@ extension PageView: UICollectionViewDataSource {
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-		return dbitems.count
+		return items.count
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
@@ -165,8 +181,8 @@ extension PageView: UICollectionViewDataSource {
 
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PageCell1", for: indexPath) as! PageCell1
 
-		let dbitem = dbitems[indexPath.item]
-		cell.bindData(dbitem, self)
+		let item = items[indexPath.item]
+		cell.bindData(item, self)
 
 		return cell
 	}

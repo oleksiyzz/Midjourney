@@ -14,10 +14,6 @@ import Foundation
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 class Keywords {
 
-	private let link = "https://related.chat/midjourney/words.json"
-
-	private let path = Dir.document("words.json")
-
 	private var words: [String: Int] = [:]
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
@@ -29,16 +25,7 @@ class Keywords {
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	class func setup() {
 
-		shared.setup()
-	}
-
-	//-------------------------------------------------------------------------------------------------------------------------------------------
-	private func setup() {
-
-		load()
-		if (words.isEmpty) {
-			download()
-		}
+		shared.load()
 	}
 }
 
@@ -47,6 +34,8 @@ extension Keywords {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	private func load() {
+
+		let path = Dir.application("words.json")
 
 		if let data = Data(path: path) {
 			decode(data)
@@ -59,21 +48,6 @@ extension Keywords {
 		if let dict = try? JSONDecoder().decode([String: Int].self, from: data) {
 			words = dict
 		}
-	}
-
-	//-------------------------------------------------------------------------------------------------------------------------------------------
-	private func download() {
-
-		guard let url = URL(string: link) else { fatalError() }
-
-		let task = URLSession.shared.dataTask(with: url) { data, _, _ in
-			if let data = data {
-				self.decode(data)
-				data.write(path: self.path)
-			}
-		}
-
-		task.resume()
 	}
 }
 

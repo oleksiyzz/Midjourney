@@ -25,20 +25,6 @@ class MainView: UIViewController {
 		title = "Midjourney"
 
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
-
-		setup()
-	}
-}
-
-// MARK: - Setup methods
-//-----------------------------------------------------------------------------------------------------------------------------------------------
-extension MainView {
-
-	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func setup() {
-
-		Keywords.setup()
-		Database.setup()
 	}
 }
 
@@ -49,10 +35,6 @@ extension MainView {
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func actionWaterfall() {
 
-		guard (qdb != nil) else {
-			setup(); return
-		}
-
 		let random = Keywords.random()
 		let gridView = GridView(random)
 		navigationController?.pushViewController(gridView, animated: true)
@@ -60,10 +42,6 @@ extension MainView {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func actionSquared() {
-
-		guard (qdb != nil) else {
-			setup(); return
-		}
 
 		let random = Keywords.random()
 		let squaredView = SquaredView(random)

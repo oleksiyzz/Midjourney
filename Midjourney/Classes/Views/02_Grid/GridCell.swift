@@ -49,35 +49,35 @@ class GridCell: UICollectionViewCell {
 extension GridCell {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func loadImage(_ dbitem: DBItem) {
+	func loadImage(_ item: Item) {
 
-		objectId = dbitem.objectId
+		objectId = item.objectId
 
 		let width = bounds.width - Grid.gridMargin
-		let height = width * dbitem.ratio
+		let height = width * item.ratio
 
 		let size = Size(width, height)
 
-		Image.load(dbitem.link(), size) { [weak self] image, error, later in
+		Image.load(item.link(), size) { [weak self] image, error, later in
 			guard let self = self else { return }
-			if (self.objectId == dbitem.objectId) {
+			if (self.objectId == item.objectId) {
 				if let image = image {
 					self.imageGrid.image = image
 				} else if later {
-					self.loadLater(dbitem)
+					self.loadLater(item)
 				}
 			}
 		}
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func loadLater(_ dbitem: DBItem) {
+	func loadLater(_ item: Item) {
 
 		DispatchQueue.main.async(after: 0.75) { [weak self] in
 			guard let self = self else { return }
-			if (self.objectId == dbitem.objectId) {
+			if (self.objectId == item.objectId) {
 				if (self.imageGrid.image == nil) {
-					self.loadImage(dbitem)
+					self.loadImage(item)
 				}
 			}
 		}

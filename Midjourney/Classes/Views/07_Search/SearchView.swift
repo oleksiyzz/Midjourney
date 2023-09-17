@@ -10,6 +10,7 @@
 // THE SOFTWARE.
 
 import UIKit
+import ProgressHUD
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 protocol SearchDelegate: AnyObject {
@@ -37,10 +38,9 @@ class SearchView: UIViewController {
 		title = "Search"
 
 		let image = UIImage(systemName: "xmark")
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(actionDismiss))
 
-		searchItems()
+		createObservers()
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
@@ -50,22 +50,81 @@ class SearchView: UIViewController {
 
 		searchBar.becomeFirstResponder()
 	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	override func viewWillDisappear(_ animated: Bool) {
+
+	   super.viewWillDisappear(animated)
+
+	   dismissKeyboard()
+	   removeObservers()
+   }
 }
 
-// MARK: - Database methods
+// MARK: - Keyboard methods
+//-----------------------------------------------------------------------------------------------------------------------------------------------
+extension SearchView {
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	@objc func dismissKeyboard() {
+
+		view.endEditing(true)
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	func createObservers() {
+
+		let keyboardWillShow = UIResponder.keyboardWillShowNotification
+		let keyboardWillHide = UIResponder.keyboardWillHideNotification
+
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: keyboardWillShow, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: keyboardWillHide, object: nil)
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	func removeObservers() {
+
+		NotificationCenter.default.removeObserver(self)
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	@objc func keyboardWillShow(_ notification: NSNotification) {
+
+		if let userInfo = notification.userInfo {
+			if let frameKeyboard = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+				let insets = UIEdgeInsets(top: 0, left: 0, bottom: frameKeyboard.height, right: 0)
+				tableView.contentInset = insets
+				tableView.scrollIndicatorInsets = insets
+			}
+		}
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	@objc func keyboardWillHide(_ notification: NSNotification) {
+
+		let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+		tableView.contentInset = insets
+		tableView.scrollIndicatorInsets = insets
+	}
+}
+
+// MARK: - Backend methods
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 extension SearchView {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func searchItems() {
 
+		let text = searchBar.text ?? ""
+
 		if (isLoading) {
 			isWaiting = true
 		} else {
-			isLoading = true
-			let text = searchBar.text ?? ""
-			DispatchQueue.global().async {
-				self.searchItems(text)
+			if (text.isEmpty) {
+				suggestions.removeAll()
+				tableView.reloadData()
+			} else {
+				searchItems(text)
 			}
 		}
 	}
@@ -73,42 +132,22 @@ extension SearchView {
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func searchItems(_ text: String) {
 
-		let text = text.lowercased()
-
-		let dbsearches = DBSearch.fetchAll(qdb, "prompt MATCH ?", [text+"*"], limit: 10000)
-
-		var suggestionCounts: [String: Int] = [:]
-
-		for dbsearch in dbsearches {
-			let prompt = dbsearch.prompt.lowercased().filter { character in
-				if let scalar = character.unicodeScalars.first {
-					return !CharacterSet.punctuationCharacters.contains(scalar)
-				}
-				return true
+		isLoading = true
+		Backend.search(text) { [self] array, error in
+			isLoading = false
+			if let error = error {
+				ProgressHUD.showFailed(error)
+			} else if let array = array {
+				suggestions = array
+				tableView.reloadData()
 			}
-
-			if let upperBound = prompt.range(of: text)?.upperBound, upperBound <= prompt.endIndex {
-				let remainingText = prompt[upperBound..<prompt.endIndex]
-				if let nextSpace = remainingText.firstIndex(of: " ") {
-					let nextWord = prompt[upperBound..<nextSpace]
-					let suggestion = "\(text)\(nextWord)"
-					suggestionCounts[suggestion, default: 0] += 1
-				}
-			}
-		}
-
-		suggestions = suggestionCounts.sorted { $0.value > $1.value }.map { $0.key }
-
-		DispatchQueue.main.async { [self] in
-			tableView.reloadData()
-			loadingFinished()
+			checkWaiting()
 		}
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func loadingFinished() {
+	func checkWaiting() {
 
-		isLoading = false
 		if (isWaiting) {
 			isWaiting = false
 			searchItems()

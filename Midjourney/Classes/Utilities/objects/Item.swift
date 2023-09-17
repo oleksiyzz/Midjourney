@@ -10,36 +10,31 @@
 // THE SOFTWARE.
 
 import Foundation
-import RelatedDB
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
-class DBItem: NSObject, RDObject {
+class Item {
 
-	@objc var objectId: String = ""
-
-//	@objc var link: String = ""
-//	@objc var full: String = ""
-
-//	@objc var width: Int = 0
-//	@objc var height: Int = 0
-	@objc var ratio: Double = 0
-
-//	@objc var username: String = ""
-	@objc var prompt: String = ""
+	var objectId: String = ""
+	var prompt: String = ""
+	var ratio: Double = 0
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	class func primaryKey() -> String {
+	init(_ values: [String: Any]) {
 
-		return "objectId"
+		objectId = values["objectId"] as? String ?? ""
+		prompt = values["prompt"] as? String ?? ""
+		ratio = values["ratio"] as? Double ?? 0.0
 	}
-}
-
-//-----------------------------------------------------------------------------------------------------------------------------------------------
-extension DBItem {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func link() -> String {
 
 		return "https://cdn.midjourney.com/" + objectId + "_384_N.webp"
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	func full() -> String {
+
+		return "https://cdn.midjourney.com/" + objectId + ".png"
 	}
 }

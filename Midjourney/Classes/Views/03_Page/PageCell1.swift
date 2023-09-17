@@ -18,7 +18,7 @@ class PageCell1: UICollectionViewCell {
 
 	@IBOutlet var tableView: UITableView!
 
-	private var dbitem: DBItem!
+	private var item: Item!
 	private var pageView: PageView!
 
 	var contentOffsetY: CGFloat = 0
@@ -41,9 +41,9 @@ class PageCell1: UICollectionViewCell {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func bindData(_ dbitem : DBItem, _ pageView: PageView) {
+	func bindData(_ item: Item, _ pageView: PageView) {
 
-		self.dbitem = dbitem
+		self.item = item
 		self.pageView = pageView
 
 		tableView.reloadData()
@@ -86,14 +86,14 @@ extension PageCell1: UITableViewDataSource {
 
 		if (indexPath.row == 0) {
 			let widthImage = bounds.width - 2 * Grid.pageMargin
-			let heightImage = widthImage * dbitem.ratio
+			let heightImage = widthImage * item.ratio
 			let heightCell = heightImage + 2 * Grid.pageMargin
 			return heightCell
 		}
 
 		if (indexPath.row == 1) {
 			let label = UILabel(frame: CGRect(x: 0, y: 0, width: bounds.width-30, height: 0))
-			label.text = dbitem.prompt
+			label.text = item.prompt
 			label.font = Grid.pageTextFont
 			label.numberOfLines = 0
 			label.sizeToFit()
@@ -109,14 +109,14 @@ extension PageCell1: UITableViewDataSource {
 		if (indexPath.row == 0) {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "PageCell2", for: indexPath) as! PageCell2
 			cell.selectionStyle = .none
-			cell.loadImage(dbitem)
+			cell.loadImage(item)
 			return cell
 		}
 
 		if (indexPath.row == 1) {
 			var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cellText")
 			if (cell == nil) { cell = UITableViewCell(style: .default, reuseIdentifier: "cellText") }
-			cell.textLabel?.text = dbitem.prompt
+			cell.textLabel?.text = item.prompt
 			cell.textLabel?.font = Grid.pageTextFont
 			cell.textLabel?.numberOfLines = 0
 			return cell
@@ -136,16 +136,16 @@ extension PageCell1: UITableViewDelegate {
 		tableView.deselectRow(at: indexPath, animated: true)
 
 		if (indexPath.row == 0) {
-			if let path = Image.path(link: dbitem.link()) {
+			if let path = Image.path(link: item.link()) {
 				if let image = UIImage(path: path) {
-					let object = PhotoObject(dbitem.objectId, image)
+					let object = PhotoObject(item.objectId, image)
 					let photoController = PhotoController([object], 0)
 					pageView.present(photoController, animated: true)
 				}
 			}
 		}
 		if (indexPath.row == 1) {
-			UIPasteboard.general.string = dbitem.prompt
+			UIPasteboard.general.string = item.prompt
 			ProgressHUD.showSucceed("Copied.")
 		}
 	}

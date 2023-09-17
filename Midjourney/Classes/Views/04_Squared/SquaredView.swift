@@ -11,16 +11,22 @@
 
 import UIKit
 import RelatedUI
+import ProgressHUD
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 class SquaredView: UIViewController {
 
+	@IBOutlet private var viewTitle: UIView!
+	@IBOutlet private var labelTitle: UILabel!
+	@IBOutlet private var labelSubtitle: UILabel!
+
 	@IBOutlet private var collectionView: UICollectionView!
 
-	private var buttonTitle: UIButton!
+	private var page: Int = 0
+	private var total: Int = 0
 
+	private var items: [Item] = []
 	private var search: String = ""
-	private var dbitems: [DBItem] = []
 	private var isLoading: Bool = false
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
@@ -41,12 +47,9 @@ class SquaredView: UIViewController {
 	override func viewDidLoad() {
 
 		super.viewDidLoad()
+		navigationItem.titleView = viewTitle
 
-		buttonTitle = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
-		buttonTitle.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-		buttonTitle.addTarget(self, action: #selector(actionRandom), for: .touchUpInside)
-		navigationItem.titleView = buttonTitle
-
+		navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(actionSearch))
 
 		collectionView.register(UINib(nibName: "SquaredCell", bundle: nil), forCellWithReuseIdentifier: "SquaredCell")
@@ -54,7 +57,7 @@ class SquaredView: UIViewController {
 		let margin = Grid.gridMargin / 2
 		collectionView.contentInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
 
-		loadItems()
+		reloadItems()
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
@@ -66,42 +69,47 @@ class SquaredView: UIViewController {
 	}
 }
 
-// MARK: - Database methods
+// MARK: - Backend methods
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 extension SquaredView {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func loadItems() {
+	func reloadItems() {
 
-		if (isLoading) { return }
+		if (!isLoading) {
+			page = 0
+			total = 0
 
-		scrollToZero()
-		updateLoading(true)
+			scrollToZero()
+			items.removeAll()
+			collectionView.reloadData()
 
-		dbitems.removeAll()
-		collectionView.reloadData()
-
-		DispatchQueue.global().async {
-			self.searchItems()
+			loadItems()
 		}
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func searchItems() {
+	func loadNext() {
 
-		let dbsearches = DBSearch.fetchAll(qdb, "prompt MATCH ?", [search+"*"])
-
-		var objectIds: [String] = []
-		for dbsearch in dbsearches {
-			objectIds.append(dbsearch.objectId)
+		if (!isLoading) {
+			page += 1
+			loadItems()
 		}
+	}
 
-		dbitems = DBItem.fetchAll(qdb, "objectId IN ?", [objectIds])
-		dbitems.shuffle()
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	func loadItems() {
 
-		DispatchQueue.main.async {
-			self.collectionView.reloadData()
-			self.updateLoading(false)
+		updateLoading(true)
+		Backend.items(search, page) { [self] count, array, error in
+			if let error = error {
+				ProgressHUD.showFailed(error)
+			} else if let array = array {
+				total = count
+				items.append(contentsOf: array)
+				collectionView.reloadData()
+			}
+			updateLoading(false)
 		}
 	}
 }
@@ -123,9 +131,9 @@ extension SquaredView {
 
 		isLoading = value
 
-		let text = isLoading ? "Loading..." : "\(search.capitalized) - \(dbitems.count)"
+		labelTitle.text = "\(search.capitalized)"
 
-		buttonTitle.setTitle(text, for: .normal)
+		labelSubtitle.text = isLoading ? "Loading..." : "\(items.count) of \(total)"
 	}
 }
 
@@ -134,11 +142,11 @@ extension SquaredView {
 extension SquaredView {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	@objc func actionRandom() {
+	@IBAction func actionRandom(_ sender: Any) {
 
 		search = Keywords.random()
 
-		loadItems()
+		reloadItems()
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
@@ -160,7 +168,7 @@ extension SquaredView: SearchDelegate {
 
 		self.search = search
 
-		loadItems()
+		reloadItems()
 	}
 }
 
@@ -177,7 +185,15 @@ extension SquaredView: UICollectionViewDataSource {
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-		return dbitems.count
+		return items.count
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+
+		if (indexPath.item == items.count-1) && (items.count < total) {
+			loadNext()
+		}
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
@@ -185,8 +201,8 @@ extension SquaredView: UICollectionViewDataSource {
 
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SquaredCell", for: indexPath) as! SquaredCell
 
-		let dbitem = dbitems[indexPath.item]
-		cell.loadImage(dbitem)
+		let item = items[indexPath.item]
+		cell.loadImage(item)
 
 		return cell
 	}
@@ -217,7 +233,7 @@ extension SquaredView: UICollectionViewDelegate {
 
 		collectionView.deselectItem(at: indexPath, animated: true)
 
-		let pageView = PageView(dbitems, indexPath.item)
+		let pageView = PageView(items, indexPath.item)
 		navigationController?.pushViewController(pageView, animated: true)
 	}
 }

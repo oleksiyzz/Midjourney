@@ -11,9 +11,14 @@
 
 import UIKit
 import RelatedUI
+import ProgressHUD
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 class GridView: UIViewController {
+
+	@IBOutlet private var viewTitle: UIView!
+	@IBOutlet private var labelTitle: UILabel!
+	@IBOutlet private var labelSubtitle: UILabel!
 
 	@IBOutlet private var collectionView: UICollectionView!
 
@@ -21,10 +26,12 @@ class GridView: UIViewController {
 	private let delegateHolder = NavigationControllerDelegate()
 
 	private var gridLayout: GridLayout!
-	private var buttonTitle: UIButton!
 
+	private var page: Int = 0
+	private var total: Int = 0
+
+	private var items: [Item] = []
 	private var search: String = ""
-	private var dbitems: [DBItem] = []
 	private var isLoading: Bool = false
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
@@ -45,11 +52,7 @@ class GridView: UIViewController {
 	override func viewDidLoad() {
 
 		super.viewDidLoad()
-
-		buttonTitle = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
-		buttonTitle.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-		buttonTitle.addTarget(self, action: #selector(actionRandom), for: .touchUpInside)
-		navigationItem.titleView = buttonTitle
+		navigationItem.titleView = viewTitle
 
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(actionSearch))
@@ -63,7 +66,7 @@ class GridView: UIViewController {
 		let margin = Grid.gridMargin / 2
 		collectionView.contentInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
 
-		loadItems()
+		reloadItems()
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
@@ -83,42 +86,47 @@ class GridView: UIViewController {
 	}
 }
 
-// MARK: - Database methods
+// MARK: - Backend methods
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 extension GridView {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func loadItems() {
+	func reloadItems() {
 
-		if (isLoading) { return }
+		if (!isLoading) {
+			page = 0
+			total = 0
 
-		scrollToZero()
-		updateLoading(true)
+			scrollToZero()
+			items.removeAll()
+			collectionView.reloadData()
 
-		dbitems.removeAll()
-		collectionView.reloadData()
-
-		DispatchQueue.global().async {
-			self.searchItems()
+			loadItems()
 		}
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	func searchItems() {
+	func loadNext() {
 
-		let dbsearches = DBSearch.fetchAll(qdb, "prompt MATCH ?", [search+"*"])
-
-		var objectIds: [String] = []
-		for dbsearch in dbsearches {
-			objectIds.append(dbsearch.objectId)
+		if (!isLoading) {
+			page += 1
+			loadItems()
 		}
+	}
 
-		dbitems = DBItem.fetchAll(qdb, "objectId IN ?", [objectIds])
-		dbitems.shuffle()
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	func loadItems() {
 
-		DispatchQueue.main.async {
-			self.collectionView.reloadData()
-			self.updateLoading(false)
+		updateLoading(true)
+		Backend.items(search, page) { [self] count, array, error in
+			if let error = error {
+				ProgressHUD.showFailed(error)
+			} else if let array = array {
+				total = count
+				items.append(contentsOf: array)
+				collectionView.reloadData()
+			}
+			updateLoading(false)
 		}
 	}
 }
@@ -140,9 +148,9 @@ extension GridView {
 
 		isLoading = value
 
-		let text = isLoading ? "Loading..." : "\(search.capitalized) - \(dbitems.count)"
+		labelTitle.text = "\(search.capitalized)"
 
-		buttonTitle.setTitle(text, for: .normal)
+		labelSubtitle.text = isLoading ? "Loading..." : "\(items.count) of \(total)"
 	}
 }
 
@@ -151,11 +159,11 @@ extension GridView {
 extension GridView {
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
-	@objc func actionRandom() {
+	@IBAction func actionRandom(_ sender: Any) {
 
 		search = Keywords.random()
 
-		loadItems()
+		reloadItems()
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
@@ -177,7 +185,7 @@ extension GridView: SearchDelegate {
 
 		self.search = search
 
-		loadItems()
+		reloadItems()
 	}
 }
 
@@ -209,12 +217,12 @@ extension GridView: GridViewProtocol {
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func imageSize() -> CGSize {
 
-		let dbitem = dbitems[selectedPath.item]
+		let item = items[selectedPath.item]
 
 		let widthCollection = gridLayout.widthCollection
 		let widthCell = widthCollection / Grid.columns()
 		let widthImage = widthCell - Grid.gridMargin
-		let heightImage = widthImage * dbitem.ratio
+		let heightImage = widthImage * item.ratio
 
 		return CGSize(width: widthImage, height: heightImage)
 	}
@@ -254,12 +262,12 @@ extension GridView: GridLayoutDelegate {
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func collectionView(_ collectionView: UICollectionView, heightForCellAtIndexPath indexPath: IndexPath) -> CGFloat {
 
-		let dbitem = dbitems[indexPath.item]
+		let item = items[indexPath.item]
 
 		let widthCollection = gridLayout.widthCollection
 		let widthCell = widthCollection / Grid.columns()
 		let widthImage = widthCell - Grid.gridMargin
-		let heightImage = widthImage * dbitem.ratio
+		let heightImage = widthImage * item.ratio
 		let heightCell = heightImage + Grid.gridMargin
 
 		Grid.widthGridImage = widthImage
@@ -281,7 +289,15 @@ extension GridView: UICollectionViewDataSource {
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-		return dbitems.count
+		return items.count
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+	func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+
+		if (indexPath.item == items.count-1) && (items.count < total) {
+			loadNext()
+		}
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
@@ -289,8 +305,8 @@ extension GridView: UICollectionViewDataSource {
 
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! GridCell
 
-		let dbitem = dbitems[indexPath.item]
-		cell.loadImage(dbitem)
+		let item = items[indexPath.item]
+		cell.loadImage(item)
 
 		return cell
 	}
@@ -307,7 +323,7 @@ extension GridView: UICollectionViewDelegate {
 
 		selectedPath = indexPath
 
-		let pageView = PageView(dbitems, indexPath.item, self)
+		let pageView = PageView(items, indexPath.item, self)
 		navigationController?.delegate = delegateHolder
 		navigationController?.pushViewController(pageView, animated: true)
 	}
