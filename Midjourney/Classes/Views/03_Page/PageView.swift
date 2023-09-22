@@ -87,7 +87,10 @@ extension PageView {
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func interfaceOrientation() -> UIInterfaceOrientation {
 
-		return UIApplication.shared.windows.first?.windowScene?.interfaceOrientation ?? UIInterfaceOrientation.unknown
+		if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+			return windowScene.interfaceOrientation
+		}
+		return .unknown
 	}
 }
 
