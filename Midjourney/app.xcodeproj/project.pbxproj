@@ -617,7 +617,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.relatedcode.midjourney;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -641,7 +641,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.relatedcode.midjourney;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -689,7 +689,7 @@
 			repositoryURL = "https://github.com/relatedcode/ProgressHUD";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 13.7.2;
+				minimumVersion = 14.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

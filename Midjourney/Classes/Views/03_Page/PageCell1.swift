@@ -146,7 +146,7 @@ extension PageCell1: UITableViewDelegate {
 		}
 		if (indexPath.row == 1) {
 			UIPasteboard.general.string = item.prompt
-			ProgressHUD.showSucceed("Copied.")
+			ProgressHUD.succeed("Copied.")
 		}
 	}
 }

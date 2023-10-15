@@ -103,7 +103,7 @@ extension SquaredView {
 		updateLoading(true)
 		Backend.items(search, page) { [self] count, array, error in
 			if let error = error {
-				ProgressHUD.showFailed(error)
+				ProgressHUD.failed(error)
 			} else if let array = array {
 				total = count
 				items.append(contentsOf: array)

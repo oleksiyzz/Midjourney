@@ -136,7 +136,7 @@ extension SearchView {
 		Backend.search(text) { [self] array, error in
 			isLoading = false
 			if let error = error {
-				ProgressHUD.showFailed(error)
+				ProgressHUD.failed(error)
 			} else if let array = array {
 				suggestions = array
 				tableView.reloadData()

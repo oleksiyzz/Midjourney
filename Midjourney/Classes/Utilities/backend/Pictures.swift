@@ -23,7 +23,7 @@ class Pictures: NSObject {
 		if (Pictures.downloading) { return }
 		else { Pictures.downloading = true }
 
-		ProgressHUD.showProgress(0.0, interaction: true)
+		ProgressHUD.progress(0.0, interaction: true)
 
 		guard let url = URL(string: link) else { fatalError() }
 
@@ -44,7 +44,7 @@ extension Pictures: URLSessionDownloadDelegate {
 
 		let progress = CGFloat(totalBytesWritten) / CGFloat(totalBytesExpectedToWrite)
 
-		ProgressHUD.showProgress(progress, interaction: true)
+		ProgressHUD.progress(progress, interaction: true)
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
@@ -53,14 +53,14 @@ extension Pictures: URLSessionDownloadDelegate {
 		Pictures.downloading = false
 
 		if let error = error {
-			ProgressHUD.showFailed(error)
+			ProgressHUD.failed(error)
 		}
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------
 	func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
 
-		ProgressHUD.showProgress(1.0, interaction: true)
+		ProgressHUD.progress(1.0, interaction: true)
 
 		if let data = Data(path: location.relativePath) {
 			if let image = UIImage(data: data) {
@@ -80,9 +80,9 @@ extension Pictures {
 		Pictures.downloading = false
 
 		if let error = error {
-			ProgressHUD.showFailed(error)
+			ProgressHUD.failed(error)
 		} else {
-			ProgressHUD.showSucceed()
+			ProgressHUD.succeed()
 		}
 	}
 }
