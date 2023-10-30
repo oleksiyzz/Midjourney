@@ -1,16 +1,16 @@
-<a href="https://fictiongpt.xyz"><img src="https://related.chat/github/header40.png" width="880"></a>
+<a href="https://learngpt.art"><img src="https://rel.codes/banner/002.png" width="880"></a>
 
 ## OVERVIEW
 
 This application is an open-source iOS concept, designed to showcase Midjourney images through an interface inspired by Pinterest.
 
-<img src="https://related.chat/midjourney/01.png" width="880">
+<img src="https://rel.codes/midjourney/01.png" width="880">
 
 ## INSTALLATION
 
 Open the `app.xcodeproj` file in Xcode, and from the menu, choose Product/Run or press (⌘ R).
 
-<img src="https://related.chat/midjourney/02.png" width="880">
+<img src="https://rel.codes/midjourney/02.png" width="880">
 
 ## DISCLAIMER
 
